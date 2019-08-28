@@ -17,7 +17,8 @@ const getSecondsUntilNextBus = (bus, stop) => {
       return console.error('Failed to fetch times', err)
     }
     try {
-    const { prediction } = res.predictions.direction
+    const { direction } = res.predictions
+    const { prediction } = Array.isArray(direction) ? direction[0] : direction
     const seconds = +(Array.isArray(prediction) ? prediction[0] : prediction).seconds
     console.log('Next %d is in %d min %d seconds', bus, ~~(seconds/60), seconds % 60)
     } catch(err) {
@@ -28,5 +29,5 @@ const getSecondsUntilNextBus = (bus, stop) => {
 
 getSecondsUntilNextBus(2)
 getSecondsUntilNextBus(3)
-//getSecondsUntilNextBus(30, 6523)
+getSecondsUntilNextBus(30, 6523)
 
