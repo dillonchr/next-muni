@@ -5,4 +5,10 @@ Simple module that returns preconfigured routes. Currently set up for several ve
 
 <img src="https://i.imgur.com/EibDixy.png" alt="example of tmux status" width="500"/>
 
-
+## TMUX instructions
+Assuming you're using my .tmux setup. So here's what maglev should look like once you've added muni.
+```bash
+$ cat ~/.tmux/plugins/maglev/maglev.tmux|grep muni
+status_right="$status_right #(node $HOME/git/muni/muni.js) "
+$
+```
